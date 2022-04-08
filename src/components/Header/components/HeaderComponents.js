@@ -5,9 +5,11 @@ const HeaderComponents = ({ menu }) => {
   return (
     <>
       {menu &&
-        menu?.map((item) => (
+        menu?.map((item, idx) => (
           <>
-            <Nav.Link href={item}>{item}</Nav.Link>
+            <Nav.Link key={item + idx} href={item}>
+              {item}
+            </Nav.Link>
           </>
         ))}
     </>

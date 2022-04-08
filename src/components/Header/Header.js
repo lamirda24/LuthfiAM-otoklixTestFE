@@ -7,7 +7,12 @@ const Header = () => {
   const [menu, setMenu] = useState(["Home", "New Post"]);
   return (
     <div>
-      <Navbar bg="dark" expand="lg" variant="dark">
+      <Navbar
+        style={{
+          background: "#002eb4",
+        }}
+        variant="dark"
+      >
         <Container fluid>
           <Navbar.Brand href="#">B-LOG</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />

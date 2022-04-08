@@ -1,5 +1,5 @@
 import React from "react";
-import Section from "./Pages/Section";
+import Section from "./Pages/Home/Section";
 import styled from "styled-components";
 
 const Content = () => {
@@ -15,5 +15,5 @@ export default Content;
 const Container = styled.div`
   height: 100vh;
   padding: 20px;
-  width: 100vw;
+  // width: 100vw;
 `;
