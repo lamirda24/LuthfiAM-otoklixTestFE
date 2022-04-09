@@ -1,11 +1,12 @@
 import React from "react";
 import Section from "./Pages/Home/Section";
 import styled from "styled-components";
+import { Outlet } from "react-router-dom";
 
 const Content = () => {
   return (
     <Container>
-      <Section />
+      <Outlet />
     </Container>
   );
 };

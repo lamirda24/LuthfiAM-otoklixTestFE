@@ -1,16 +1,17 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const HeaderComponents = ({ menu }) => {
   return (
     <>
       {menu &&
         menu?.map((item, idx) => (
-          <>
-            <Nav.Link key={item + idx} href={item}>
-              {item}
-            </Nav.Link>
-          </>
+          <div key={item.id + "_" + idx}>
+            <Link to={item.routes} className="nav-link">
+              {item.name}
+            </Link>
+          </div>
         ))}
     </>
   );
