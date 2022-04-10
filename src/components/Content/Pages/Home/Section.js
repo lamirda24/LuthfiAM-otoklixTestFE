@@ -75,7 +75,7 @@ const Section = () => {
           <>
             {loading ? (
               <>
-                <Spinner animation="grow" />
+                <Spinner animation="border" />
               </>
             ) : data.length > 0 ? (
               <Wrapper>
@@ -85,6 +85,7 @@ const Section = () => {
                     title={item.title}
                     content={item.content}
                     created_at={timeDiff(item.created_at)}
+                    updated_at={timeDiff(item.updated_at)}
                     // refresh={ref}
                     // setRefresh={handleRefresh}
                     handleDelete={handleDelete}

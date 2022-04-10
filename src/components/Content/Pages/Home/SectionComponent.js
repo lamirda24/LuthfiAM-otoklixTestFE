@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Col } from "react-bootstrap";
 import styled from "styled-components";
 import moment from "moment";
@@ -6,16 +6,30 @@ import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import axios from "axios";
+import DetailPost from "./DetailPost";
 
 const SectionComponent = ({
   id,
   title,
   content,
   created_at,
+  updated_at,
   // refresh,
   // handleRefresh,
   handleDelete,
 }) => {
+  const [showModal, setShowModal] = useState(false);
+  const handleClose = () => {
+    setShowModal(false);
+  };
+  const data = {
+    id: id,
+    title: title,
+    content: content,
+    created_at: created_at,
+    updated_at: updated_at,
+  };
+
   return (
     <>
       <Content key={id}>
@@ -25,9 +39,12 @@ const SectionComponent = ({
             <Dropdown size="sm">
               <Dropdown.Toggle variant="" id="dropdown-basic"></Dropdown.Toggle>
               <Dropdown.Menu>
-                <Link to={"posts/" + id} className="dropdown-item">
+                <Dropdown.Item
+                  onClick={() => setShowModal(true)}
+                  className="dropdown-item"
+                >
                   Detail
-                </Link>
+                </Dropdown.Item>
                 <Link to={"update/" + id} className="dropdown-item">
                   Update
                 </Link>
@@ -50,6 +67,11 @@ const SectionComponent = ({
           </Card.Footer>
         </Card>
       </Content>
+      {showModal ? (
+        <DetailPost show={showModal} handleClose={handleClose} data={data} />
+      ) : (
+        <></>
+      )}
     </>
   );
 };
@@ -61,7 +83,7 @@ const CardHeader = styled.div`
   font-size: 20px;
   font-weight: 600;
   padding: 0.5rem 1rem; 
-  margin-bottom: 0;
+  margin-bottom: 1rem;
   background-color: 
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
   justify-content: space-between;
@@ -70,5 +92,4 @@ const CardHeader = styled.div`
 const Content = styled.div`
   width: 100%;
   height: 100%;
-  cursor: pointer;
 `;

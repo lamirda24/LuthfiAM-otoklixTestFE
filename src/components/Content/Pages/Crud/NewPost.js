@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Card, Button, CloseButton, Form } from "react-bootstrap";
+import { Card, Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import swal from "sweetalert";
