@@ -16,8 +16,9 @@ const EditPost = () => {
     axios
       .get("https://limitless-forest-49003.herokuapp.com/posts/" + id)
       .then((res) => {
+        console.log(res.data);
         setData({
-          title: res.data.tile,
+          title: res.data.title,
           content: res.data.content,
         });
       })
@@ -30,7 +31,7 @@ const EditPost = () => {
   const submitForm = (e) => {
     e.preventDefault();
     if (data) {
-      swal("Are you sure to add new post?", {
+      swal("Are you sure to edit post?", {
         dangerMode: true,
         cancel: true,
         buttons: true,
@@ -83,6 +84,7 @@ const EditPost = () => {
                   placeholder="Add Your Title Here..."
                   name="title"
                   onChange={handleChange}
+                  value={data?.title}
                 />
               </Form.Group>
               <Form.Group
@@ -95,6 +97,7 @@ const EditPost = () => {
                   rows={3}
                   onChange={handleChange}
                   name="content"
+                  value={data?.content}
                 />
               </Form.Group>
               <Button
@@ -102,7 +105,7 @@ const EditPost = () => {
                 type="submit"
                 style={{ backgroundColor: "#002eb4", borderColor: "#002eb4" }}
               >
-                Submit
+                Update
               </Button>
             </Form>
           </Card.Body>

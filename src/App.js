@@ -17,8 +17,8 @@ function App() {
         <Route path="/" exact element={<Content />}>
           <Route path="/" exact element={<Section />} />
           <Route path="create" element={<NewPost />} />
-          <Route path="update" element={<NewPost />}>
-            <Route path=":id" element={<NewPost />} />
+          <Route path="update" element={<EditPost />}>
+            <Route path=":id" element={<EditPost />} />
           </Route>
           <Route path="posts" element={<DetailPost />}>
             <Route path=":id" element={<DetailPost />} />
